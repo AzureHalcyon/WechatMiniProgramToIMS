@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="title">测试项目 By:{{ name }}</view>
+  <view class="title">{{ latitude }},{{ longitude }}</view>
+  <input class="input" placeholder="姓名" bindinput="nameChange" value="{{user_name}}" />
+  <input class="input" placeholder="学号"  bindinput="xsxhChange"value="{{user_xsxh}}" />
+  <button class="button" bindtap="onButtonClick" hidden="{{!isNeedSubmit}}">注册</button>
+  
+  <button class="button" bindtap="ScanClick" hidden="{{isNeedSubmit}}">签到</button>
+  <view>=============================</view>
+  <button class="button" bindtap="testauto" hidden="{{isNeedSubmit}}">查看信息</button>
+  <button class="button" bindtap="ShowAll" hidden="{{isNeedSubmit}}">查看数据</button>
+  <div><rich-text nodes="{{ myinfo }}" /></div>
+  <view wx:for="{{ infoList }}" wx:for-item="item" wx:for-index="index" key="{{ index }}" class="info-item">
+    <text class="info-text" style="background-color: #ebeaea;">{{ item.name }}</text>
+    <text class="info-text" style="background-color: #ebeaea;">{{ item.data }}</text>
+    <text class="info-text" style="background-color: #ebeaea;">{{ item.location }}</text>
+    <!-- 添加其他需要展示的信息属性 -->
+  </view>
+</view>
